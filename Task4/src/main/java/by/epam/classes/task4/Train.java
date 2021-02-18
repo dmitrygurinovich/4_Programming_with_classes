@@ -24,10 +24,6 @@ public class Train {
         this.departureTime = departureTime;
     }
 
-    public Train() {
-
-    }
-
     public String getDestinationName() {
         return destinationName;
     }
