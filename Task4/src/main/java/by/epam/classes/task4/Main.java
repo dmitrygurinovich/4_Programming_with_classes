@@ -1,5 +1,8 @@
 package by.epam.classes.task4;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 /*
  4. Создайте класс Train, содержащий поля: название пункта назначения, номер поезда, время отправления.
  Создайте данные в массив из пяти элементов типа Train, добавьте возможность сортировки элементов массива по
@@ -7,17 +10,19 @@ package by.epam.classes.task4;
  Добавьте возможность сортировки массива по пункту назначения, причем поезда с одинаковыми пунктами
  назначения должны быть упорядочены по времени отправления.
  */
-public class Main  {
+public class Main {
     public static void main(String[] args) {
         Train[] trains = new Train[5];
 
-        trains[0] = new Train("Борисов", 171, "18:30");
+        trains[0] = new Train("Гродно", 171, "18:30");
         trains[1] = new Train("Слуцк", 142, "14:25");
-        trains[2] = new Train("Гродно", 81, "17:10");
-        trains[3] = new Train("Могилев", 209, "02:45");
-        trains[4] = new Train("Минск", 113, "9:20");
+        trains[2] = new Train("Минск", 81, "17:10");
+        trains[3] = new Train("Слуцк", 209, "02:45");
+        trains[4] = new Train("Гродно", 112, "9:20");
 
-       Train.searchTrainByNumber(trains);
+        Train.ui(trains);
 
     }
+
+
 }
