@@ -13,11 +13,7 @@ public class Side {
         return start;
     }
 
-    public Point getEnd() {
-        return end;
-    }
-
-    public double length() {
+    double length() {
         return Math.sqrt(Math.pow((end.getX() - start.getX()), 2) + Math.pow((end.getY() - start.getY()), 2));
     }
 
