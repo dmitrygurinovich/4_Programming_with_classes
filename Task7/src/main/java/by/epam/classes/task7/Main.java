@@ -6,10 +6,14 @@ package by.epam.classes.task7;
  */
 public class Main {
     public static void main(String[] args) {
-        Triangle triangle = new Triangle(6, 5,  2.2);
+        Point A = new Point(0.0, 0.0);
+        Point B = new Point(5.0, 6.0);
+        Point C = new Point(8.0, 0.0);
 
-        triangle.square();
+        Triangle triangle = new Triangle(A, B, C);
+
         triangle.perimeter();
+        triangle.square();
         triangle.centroid();
     }
 }
