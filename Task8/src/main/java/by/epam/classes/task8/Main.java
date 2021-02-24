@@ -26,5 +26,7 @@ public class Main {
         base.sort();
         base.print();
 
+        base.searchCustomersByCreditCard(new BigInteger("2187456376546354"), new BigInteger("3765645636456535"));
+
     }
 }

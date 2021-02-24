@@ -16,14 +16,18 @@ public class CustomerBase {
         this.base.add(new Customer(lastName, firstName, patronymic, address, creditCardNumber, bankAccountNumber));
     }
 
-    public ArrayList<Customer> searchCustomersByCreditCardNumberFromInterval(BigInteger min, BigInteger max) {
+    public void searchCustomersByCreditCard(BigInteger min, BigInteger max) {
         ArrayList<Customer> tempList = new ArrayList<>();
 
         for (Customer customer : base) {
-
+            if (customer.getCreditCardNumber().compareTo(min) > 0 && customer.getCreditCardNumber().compareTo(max) < 0) {
+                tempList.add(customer);
+            }
         }
 
-        return tempList;
+        for (Customer customer : tempList) {
+            System.out.println(customer.toString());
+        }
     }
 
     public void print() {
