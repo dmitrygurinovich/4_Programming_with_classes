@@ -1,7 +1,8 @@
-package by.epam.classes.task4;
+package by.epam.classes.main;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import by.epam.classes.entity.Station;
+import by.epam.classes.entity.Train;
+import by.epam.classes.logic.Menu;
 
 /*
  4. Создайте класс Train, содержащий поля: название пункта назначения, номер поезда, время отправления.
@@ -20,7 +21,9 @@ public class Main {
         trains[3] = new Train("Слуцк", 209, "02:45");
         trains[4] = new Train("Гродно", 112, "9:20");
 
-        Train.ui(trains);
+        Station station = new Station(trains);
+
+        Menu.ui(trains);
 
     }
 
