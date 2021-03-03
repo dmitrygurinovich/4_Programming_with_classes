@@ -1,12 +1,6 @@
 package by.epam.classes.entity;
 
-import by.epam.classes.logic.StationLogic;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Objects;
-import java.util.Scanner;
-import java.util.regex.Pattern;
 
 /*
  4. Создайте класс Train, содержащий поля: название пункта назначения, номер поезда, время отправления.
@@ -26,7 +20,6 @@ public class Train {
         this.trainNumber = trainNumber;
         this.departureTime = departureTime;
     }
-
 
     public String getDestinationName() {
         return destinationName;

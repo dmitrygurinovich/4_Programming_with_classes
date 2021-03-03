@@ -2,7 +2,7 @@ package by.epam.classes.main;
 
 import by.epam.classes.entity.Station;
 import by.epam.classes.entity.Train;
-import by.epam.classes.logic.Menu;
+import by.epam.classes.logic.StationLogic;
 
 /*
  4. Создайте класс Train, содержащий поля: название пункта назначения, номер поезда, время отправления.
@@ -13,17 +13,33 @@ import by.epam.classes.logic.Menu;
  */
 public class Main {
     public static void main(String[] args) {
-        Train[] trains = new Train[5];
-
-        trains[0] = new Train("Гродно", 171, "18:30");
-        trains[1] = new Train("Слуцк", 142, "14:25");
-        trains[2] = new Train("Минск", 81, "17:10");
-        trains[3] = new Train("Слуцк", 209, "02:45");
-        trains[4] = new Train("Гродно", 112, "9:20");
+        Train[] trains = {
+                new Train("Гродно", 171, "18:30"),
+                new Train("Слуцк", 142, "14:25"),
+                new Train("Минск", 81, "17:10"),
+                new Train("Слуцк", 209, "02:45"),
+                new Train("Гродно", 112, "9:20")
+        };
 
         Station station = new Station(trains);
+        StationLogic logic = new StationLogic();
 
-        Menu.ui(trains);
+        // 1. Sort trains by train's number
+        logic.sortTrainsByNumber(trains);
+
+        for (Train train : trains) {
+            System.out.println(train.toString() + "\n");
+        }
+
+        // 2. Search train by train's number
+        System.out.println(logic.searchTrainByNumber(trains, 81).toString() + "\n");
+
+        // 3. Sort trains by destination name
+        logic.sortTrainsByDestinationNameAndDepartureTime(trains);
+
+        for (Train train : trains) {
+            System.out.println(train.toString() + "\n");
+        }
 
     }
 

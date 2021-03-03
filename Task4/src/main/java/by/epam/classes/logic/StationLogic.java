@@ -1,10 +1,6 @@
 package by.epam.classes.logic;
 
 import by.epam.classes.entity.Train;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class StationLogic {
@@ -12,27 +8,10 @@ public class StationLogic {
 
     }
 
-    public static void printAllTrains(Train[] trains) {
-        for (Train tr : trains) {
-            System.out.println(tr.toString() + "\n");
-        }
-
-    }
-
-    public static void searchTrainByNumber(Train[] trains) {
-
-        int number;
+    public Train searchTrainByNumber(Train[] trains, int number) {
         boolean numberIsExist;
 
         numberIsExist = false;
-
-        Scanner in = new Scanner(System.in);
-        System.out.println("Enter train's number: ");
-        while (!in.hasNextInt()) {
-            in.next();
-            System.out.println("Enter train's number: ");
-        }
-        number = in.nextInt();
 
         for (Train tr : trains) {
             if (tr.getTrainNumber() == number) {
@@ -40,19 +19,17 @@ public class StationLogic {
             }
         }
 
-        if (!numberIsExist) {
-            System.out.println("Train with number " + number + " not found!");
-            searchTrainByNumber(trains);
-        }
-
-        for (Train tr : trains) {
-            if (tr.getTrainNumber() == number) {
-                System.out.println("\n" + tr.toString() + "\n");
+        if (numberIsExist) {
+            for (Train tr : trains) {
+                if (tr.getTrainNumber() == number) {
+                    return tr;
+                }
             }
         }
+        return null;
     }
 
-    public static void sortTrainsByNumber(Train[] trains) {
+    public Train[] sortTrainsByNumber(Train[] trains) {
         boolean sorted;
         Train temp;
 
@@ -69,50 +46,28 @@ public class StationLogic {
                 }
             }
         }
-
-        for (int i = 0; i < trains.length; i++) {
-            System.out.println(trains[i].toString() + "\n");
-        }
+        return trains;
     }
 
     public static Train[] sortTrainsByDestinationName(Train[] trains) {
-        String[] destinationNames;
-        Train[] sortedTrains;
+        Train temp;
+        boolean sorted = false;
 
-        destinationNames = new String[5];
-        sortedTrains = new Train[5];
-
-        for (int i = 0; i < destinationNames.length; i++) {
-            destinationNames[i] = trains[i].getDestinationName();
-        }
-
-        Arrays.sort(destinationNames);
-
-        ArrayList<Train> tempList = new ArrayList<>();
-        ArrayList<Train> sortedTemList = new ArrayList<>();
-
-        for (int i = 0; i < trains.length; i++) {
-            tempList.add(trains[i]);
-        }
-
-        for (int i = 0; i < destinationNames.length; i++) {
-            for (int j = 0; j < tempList.size(); j++) {
-                if (destinationNames[i].equals(tempList.get(j).getDestinationName())) {
-                    sortedTemList.add(tempList.get(j));
-                    tempList.remove(j);
+        while (!sorted) {
+            sorted = true;
+            for (int i = 0; i < trains.length - 1; i++) {
+                if (trains[i].getDestinationName().compareTo(trains[i + 1].getDestinationName()) > 0) {
+                    temp = trains[i];
+                    trains[i] = trains[i + 1];
+                    trains[i + 1] = temp;
+                    sorted = false;
                 }
             }
         }
-
-        for (int i = 0; i < sortedTrains.length; i++) {
-            sortedTrains[i] = sortedTemList.get(i);
-        }
-
-        return sortedTrains;
+        return trains;
     }
 
     public static Train[] sortTrainsByDepartureTime(Train[] trains) {
-
         boolean sorted;
         Train temp;
 
@@ -129,7 +84,6 @@ public class StationLogic {
                 }
             }
         }
-
         return trains;
     }
 
@@ -144,17 +98,12 @@ public class StationLogic {
         return time;
     }
 
-    public static void sortTrainsByDestinationNameAndDepartureTime(Train[] trains) {
+    public Train[] sortTrainsByDestinationNameAndDepartureTime(Train[] trains) {
+        StationLogic.sortTrainsByDestinationName(trains);
+        StationLogic.sortTrainsByDepartureTime(trains);
+        StationLogic.sortTrainsByDestinationName(trains);
 
-        Train[] tempTrains;
-
-        tempTrains = StationLogic.sortTrainsByDestinationName(trains);
-        tempTrains = StationLogic.sortTrainsByDepartureTime(tempTrains);
-        tempTrains = StationLogic.sortTrainsByDestinationName(tempTrains);
-
-        for (Train tr : tempTrains) {
-            System.out.println("\n" + tr.toString() + "\n");
-        }
+        return trains;
     }
 
 }
