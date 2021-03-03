@@ -24,19 +24,17 @@ public class Main {
         Station station = new Station(trains);
         StationLogic logic = new StationLogic();
 
-        // 1. Sort trains by train's number
         logic.sortTrainsByNumber(trains);
-
+        System.out.println("Trains after sorting by train's number:");
         for (Train train : trains) {
             System.out.println(train.toString() + "\n");
         }
 
-        // 2. Search train by train's number
+        System.out.println("Search result:");
         System.out.println(logic.searchTrainByNumber(trains, 81).toString() + "\n");
 
-        // 3. Sort trains by destination name
-        logic.sortTrainsByDestinationNameAndDepartureTime(trains);
-
+        logic.sortTrainsByDestinationName(trains);
+        System.out.println("Trains after sorting by destination name: ");
         for (Train train : trains) {
             System.out.println(train.toString() + "\n");
         }
