@@ -1,4 +1,4 @@
-package by.epam.classes.task2;
+package by.epam.classes.entity;
 
 import java.util.Objects;
 

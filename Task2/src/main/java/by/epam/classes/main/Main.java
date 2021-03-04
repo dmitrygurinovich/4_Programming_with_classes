@@ -1,4 +1,6 @@
-package by.epam.classes.task2;
+package by.epam.classes.main;
+
+import by.epam.classes.entity.Test2;
 
 /*
  2. Создайте класс Test2 двумя переменными. Добавьте конструктор с входными параметрами. Добавьте

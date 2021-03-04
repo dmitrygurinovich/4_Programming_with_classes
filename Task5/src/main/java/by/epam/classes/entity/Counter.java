@@ -1,4 +1,6 @@
-package by.epam.classes.task5;
+package by.epam.classes.entity;
+
+import java.util.Objects;
 
 /*
 5. Опишите класс, реализующий десятичный счетчик, который может увеличивать или уменьшать свое значение
@@ -23,22 +25,47 @@ public class Counter {
         this.maxValue = maxValue;
     }
 
-    public int incrementValue() {
-        if (currentValue < maxValue) {
-            currentValue++;
-        }
+    public int getMinValue() {
+        return minValue;
+    }
+
+    public void setMinValue(int minValue) {
+        this.minValue = minValue;
+    }
+
+    public int getCurrentValue() {
         return currentValue;
     }
 
-    public int decrementValue() {
-        if (currentValue > minValue) {
-            currentValue--;
-        }
-        return currentValue;
+    public void setCurrentValue(int currentValue) {
+        this.currentValue = currentValue;
     }
 
-    public void printCurrentValue() {
-        System.out.println(this.currentValue);
+    public int getMaxValue() {
+        return maxValue;
     }
 
+    public void setMaxValue(int maxValue) {
+        this.maxValue = maxValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Counter counter = (Counter) o;
+        return minValue == counter.minValue &&
+                currentValue == counter.currentValue &&
+                maxValue == counter.maxValue;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(minValue, currentValue, maxValue);
+    }
+
+    @Override
+    public String toString() {
+        return "Current value = " + currentValue;
+    }
 }

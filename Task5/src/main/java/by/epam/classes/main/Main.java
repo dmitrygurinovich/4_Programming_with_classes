@@ -1,4 +1,7 @@
-package by.epam.classes.task5;
+package by.epam.classes.main;
+
+import by.epam.classes.logic.CounterLogic;
+import by.epam.classes.entity.Counter;
 
 /*
 5. Опишите класс, реализующий десятичный счетчик, который может увеличивать или уменьшать свое значение
@@ -9,33 +12,23 @@ package by.epam.classes.task5;
 public class Main {
     public static void main(String[] args) {
         Counter counter1 = new Counter();
+        CounterLogic logic = new CounterLogic();
 
-        counter1.printCurrentValue();
-
-        counter1.incrementValue();
-        counter1.incrementValue();
-        counter1.incrementValue();
-
-        counter1.printCurrentValue();
-
-        counter1.decrementValue();
-
-        counter1.printCurrentValue();
+        System.out.println(logic.printCurrentValue(counter1));;
+        logic.incrementValue(counter1);
+        logic.incrementValue(counter1);
+        logic.incrementValue(counter1);
+        System.out.println(logic.printCurrentValue(counter1));;
+        logic.decrementValue(counter1);
+        System.out.println(logic.printCurrentValue(counter1));;
 
         Counter counter2 = new Counter(2, 15);
-
-        counter2.printCurrentValue();
-
-        counter2.incrementValue();
-        counter2.incrementValue();
-        counter2.incrementValue();
-
-        counter2.printCurrentValue();
-
-        counter2.decrementValue();
-
-        counter2.printCurrentValue();
-
-
+        System.out.println(logic.printCurrentValue(counter2));;
+        logic.incrementValue(counter2);
+        logic.incrementValue(counter2);
+        logic.incrementValue(counter2);
+        System.out.println(logic.printCurrentValue(counter2));;
+        logic.decrementValue(counter2);
+        System.out.println(logic.printCurrentValue(counter2));;
     }
 }
