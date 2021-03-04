@@ -61,10 +61,8 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "lastNameAndInitials='" + lastNameAndInitials + '\'' +
-                ", groupNumber=" + groupNumber +
-                ", progress=" + Arrays.toString(progress) +
-                '}';
+        return  "Student: " + lastNameAndInitials + "\n" +
+                "Group number: " + groupNumber + "\n" +
+                "Progress: " + Arrays.toString(progress) + "\n";
     }
 }

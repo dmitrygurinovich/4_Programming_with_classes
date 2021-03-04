@@ -12,22 +12,24 @@ import by.epam.classes.logic.DepartmentLogic;
 public class Main {
     public static void main(String[] args) {
         Student[] students = {
-                new Student("Гуриновчи Д.В.", 3, new int[]{6, 7, 9, 9, 10}),
-                new Student("Иванов А.И.", 2, new int[]{5, 8, 9, 7, 6}),
-                new Student("Безмен И.А.", 1, new int[]{9, 10, 10, 9, 10}),
-                new Student("Римашевский Д.А.", 2, new int[]{6, 7, 5, 5, 6}),
-                new Student("Романчик Р.В.", 1, new int[]{4, 5, 6, 9, 7}),
-                new Student("Невмержицкая В.О.", 3, new int[]{9, 9, 10, 9, 10}),
-                new Student("Пентяк Ю.А.", 2, new int[]{9, 10, 10, 9, 9}),
-                new Student("Басков А.П.", 1, new int[]{6, 7, 4, 4, 5}),
-                new Student("Кутыш А.С.", 3, new int[]{9, 10, 7, 9, 10}),
-                new Student("Гуриновчи И.Д.", 3, new int[]{10, 10, 10, 10, 10})
+                new Student("Gurinovich D.V.", 3, new int[]{6, 7, 9, 9, 10}),
+                new Student("Ivanov A.I.", 2, new int[]{5, 8, 9, 7, 6}),
+                new Student("Bezmen I.A.", 1, new int[]{9, 10, 10, 9, 10}),
+                new Student("Rimazhevski D.A.", 2, new int[]{6, 7, 5, 5, 6}),
+                new Student("Romanchik R.V.", 1, new int[]{4, 5, 6, 9, 7}),
+                new Student("Nevmerzhickaya V.O.", 3, new int[]{9, 9, 10, 9, 10}),
+                new Student("Pentyak J.A.", 2, new int[]{9, 10, 10, 9, 9}),
+                new Student("Baskov A.P.", 1, new int[]{6, 7, 4, 4, 5}),
+                new Student("Kutysh A.S.", 3, new int[]{9, 10, 7, 9, 10}),
+                new Student("Gurinovich I.D.", 3, new int[]{10, 10, 10, 10, 10})
         };
 
         Department department = new Department(students);
         DepartmentLogic logic = new DepartmentLogic();
 
-        logic.searchBestStudents(department.getStudents());
+        for (Student student : logic.searchBestStudents(department.getStudents())) {
+            System.out.println(student);
+        }
     }
 
 }
