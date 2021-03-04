@@ -11,6 +11,9 @@ public class Train {
     private Date departureTime;
     private static SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 
+    public Train() {
+    }
+
     public Train(String destinationName, int trainNumber, Date departureTime) {
         this.destinationName = destinationName;
         this.trainNumber = trainNumber;

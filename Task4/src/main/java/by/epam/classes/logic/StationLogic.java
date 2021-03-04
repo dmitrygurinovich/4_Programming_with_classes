@@ -8,14 +8,15 @@ public class StationLogic {
 
     }
 
-    public Train searchTrainByNumber(Train[] trains, int number) {
-
+    public String searchTrainByNumber(Train[] trains, int number) {
+        String train;
+        train = "Train not found!";
         for (Train tr : trains) {
             if (tr.getTrainNumber() == number) {
-                return tr;
+                return  train = tr.toString();
             }
         }
-        return null; // FIXME delete null!
+        return train;
     }
 
     public void sortTrainsByNumber(Train[] trains) {
