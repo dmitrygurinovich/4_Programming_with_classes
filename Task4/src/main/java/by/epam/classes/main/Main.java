@@ -4,6 +4,8 @@ import by.epam.classes.entity.Station;
 import by.epam.classes.entity.Train;
 import by.epam.classes.logic.StationLogic;
 
+import java.text.ParseException;
+
 /*
  4. Создайте класс Train, содержащий поля: название пункта назначения, номер поезда, время отправления.
  Создайте данные в массив из пяти элементов типа Train, добавьте возможность сортировки элементов массива по
@@ -12,13 +14,13 @@ import by.epam.classes.logic.StationLogic;
  назначения должны быть упорядочены по времени отправления.
  */
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         Train[] trains = {
-                new Train("Гродно", 171, "18:30"),
-                new Train("Слуцк", 142, "14:25"),
-                new Train("Минск", 81, "17:10"),
-                new Train("Слуцк", 209, "02:45"),
-                new Train("Гродно", 112, "9:20")
+                new Train("Grodno", 171, Train.getFormat().parse("9:20")),
+                new Train("Slutsk", 142, Train.getFormat().parse("14:25")),
+                new Train("Minsk", 81, Train.getFormat().parse("17:10")),
+                new Train("Slutsk", 209, Train.getFormat().parse("02:45")),
+                new Train("Grodno", 112, Train.getFormat().parse("12:25"))
         };
 
         Station station = new Station(trains);

@@ -2,7 +2,6 @@ package by.epam.classes.logic;
 
 import by.epam.classes.entity.Train;
 
-import java.util.regex.Pattern;
 
 public class StationLogic {
     public StationLogic() {
@@ -47,7 +46,7 @@ public class StationLogic {
 
             for (int i = 0; i < trains.length - 1; i++) {
 
-                if (!trains[i].getDestinationName().equals(trains[i+1].getDestinationName())) {
+                if (!trains[i].getDestinationName().equals(trains[i + 1].getDestinationName())) {
                     if (trains[i].getDestinationName().compareTo(trains[i + 1].getDestinationName()) > 0) {
                         temp = trains[i];
                         trains[i] = trains[i + 1];
@@ -55,8 +54,7 @@ public class StationLogic {
                         sorted = false;
                     }
                 } else {
-                    if (departureTimeToInteger(trains[i].getDepartureTime()) >
-                            departureTimeToInteger(trains[i+1].getDepartureTime())) {
+                    if (trains[i].getDepartureTime().compareTo(trains[i+1].getDepartureTime()) > 0) {
                         temp = trains[i];
                         trains[i] = trains[i + 1];
                         trains[i + 1] = temp;
@@ -65,17 +63,6 @@ public class StationLogic {
                 }
             }
         }
-    }
-
-    public static int departureTimeToInteger(String timeString) {
-        int time;
-
-        Pattern pattern = Pattern.compile(":");
-        String[] arr = pattern.split(timeString);
-        String timeStr = arr[0].concat(arr[1]);
-
-        time = Integer.valueOf(timeStr);
-        return time;
     }
 
 }

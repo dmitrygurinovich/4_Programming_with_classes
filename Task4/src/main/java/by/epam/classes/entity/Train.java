@@ -1,14 +1,17 @@
 package by.epam.classes.entity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class Train {
 
     private String destinationName;
     private int trainNumber;
-    private String departureTime;  //TODO: create Date class
+    private Date departureTime;
+    private static SimpleDateFormat format = new SimpleDateFormat("HH:mm");
 
-    public Train(String destinationName, int trainNumber, String departureTime) {
+    public Train(String destinationName, int trainNumber, Date departureTime) {
         this.destinationName = destinationName;
         this.trainNumber = trainNumber;
         this.departureTime = departureTime;
@@ -30,12 +33,20 @@ public class Train {
         this.trainNumber = trainNumber;
     }
 
-    public String getDepartureTime() {
+    public Date getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(String departureTime) {
+    public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
+    }
+
+    public static SimpleDateFormat getFormat() {
+        return format;
+    }
+
+    public static void setFormat(SimpleDateFormat format) {
+        Train.format = format;
     }
 
     @Override
@@ -43,9 +54,8 @@ public class Train {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Train train = (Train) o;
-        return trainNumber == train.trainNumber &&
-                Objects.equals(destinationName, train.destinationName) &&
-                Objects.equals(departureTime, train.departureTime);
+        return trainNumber == train.trainNumber && destinationName.equals(train.destinationName) &&
+                departureTime.equals(train.departureTime);
     }
 
     @Override
@@ -55,8 +65,8 @@ public class Train {
 
     @Override
     public String toString() {
-        return "Номер поезда: " + trainNumber + "\n" +
-                "Пункт назначения: " + destinationName + "\n" +
-                "Время отправления: " + departureTime;
+        return "Train's number: " + trainNumber + "\n" +
+                "Destination name: " + destinationName + "\n" +
+                "Departure time: " + format.format(departureTime);
     }
 }
