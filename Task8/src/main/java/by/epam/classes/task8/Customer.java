@@ -1,6 +1,7 @@
 package by.epam.classes.task8;
 
 import java.math.BigInteger;
+import java.util.Objects;
 
 public class Customer {
     private static int defaultId = 1;
@@ -76,6 +77,19 @@ public class Customer {
 
     public void setBankAccountNumber(long bankAccountNumber) {
         this.bankAccountNumber = bankAccountNumber;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return id == customer.id && bankAccountNumber == customer.bankAccountNumber && Objects.equals(lastName, customer.lastName) && Objects.equals(firstName, customer.firstName) && Objects.equals(patronymic, customer.patronymic) && Objects.equals(address, customer.address) && Objects.equals(creditCardNumber, customer.creditCardNumber);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, lastName, firstName, patronymic, address, creditCardNumber, bankAccountNumber);
     }
 
     @Override
