@@ -26,7 +26,7 @@ public class Main {
         logic.addBook(base, "Философия Java", "Брюс Эккель", "ООО Питер Мейл", 2021, 1168, 74.21, "твердый переплет");
 
         System.out.println("Результат поиска по автору:\n");
-        for (Book book : logic.searchBookByAuthor(base, "Б. Пастернак")) {
+        for (Book book : logic.searchBookByAuthor(base, "Ю. Фельштинский")) {
             System.out.println(book);
         }
 

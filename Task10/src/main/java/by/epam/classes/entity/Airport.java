@@ -1,7 +1,5 @@
 package by.epam.classes.entity;
 
-import by.epam.classes.entity.Airline;
-
 import java.util.ArrayList;
 
 public class Airport {

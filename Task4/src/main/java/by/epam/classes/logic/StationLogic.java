@@ -13,7 +13,7 @@ public class StationLogic {
         train = "Train not found!";
         for (Train tr : trains) {
             if (tr.getTrainNumber() == number) {
-                return  train = tr.toString();
+                return tr.toString();
             }
         }
         return train;

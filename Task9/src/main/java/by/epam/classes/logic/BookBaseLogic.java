@@ -18,7 +18,7 @@ public class BookBaseLogic {
         ArrayList<Book> searchResult = new ArrayList<>();
 
         for (Book book : base.getBase()) {
-            if (book.getPublishingHouse() == publishingHouse) {
+            if (book.getPublishingHouse().equals(publishingHouse)) {
                 searchResult.add(book);
             }
         }
@@ -42,7 +42,7 @@ public class BookBaseLogic {
         ArrayList<Book> searchResult = new ArrayList<>();
 
         for (Book book : base.getBase()) {
-            if (book.getAuthor() == author) {
+            if (book.getAuthor().equals(author)) {
                 searchResult.add(book);
             }
         }
