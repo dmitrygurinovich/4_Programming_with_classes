@@ -1,4 +1,7 @@
-package by.epam.classes.task6;
+package by.epam.classes.main;
+
+import by.epam.classes.entity.Time;
+import by.epam.classes.logic.TimeLogic;
 
 /*
  6. Составьте описание класса для представления времени. Предусмотрте возможности установки времени и
@@ -10,20 +13,22 @@ public class Main {
     public static void main(String[] args) {
 
         Time time = new Time(10, 12, 49);
+        TimeLogic logic = new TimeLogic();
 
-        time.changeHours(12);
-        time.changeMinutes(25);
-        time.changeSeconds(32);
+        System.out.println(time);
 
-        time.print();
+        logic.changeHours(time, 12);
+        logic.changeMinutes(time, 25);
+        logic.changeSeconds(time, 32);
+        System.out.println(time);
 
-        time.addSeconds(70002);
-        time.print();
+        logic.addHours(time, 209);
+        System.out.println(time);
 
-        time.addMinutes(10000);
-        time.print();
+        logic.addMinutes(time, 10000);
+        System.out.println(time);
 
-        time.addHours(209);
-        time.print();
+        logic.addSeconds(time, 70002);
+        System.out.println(time);
     }
 }

@@ -1,4 +1,6 @@
-package by.epam.classes.task6;
+package by.epam.classes.entity;
+
+import java.util.Objects;
 
 /*
  6. Составьте описание класса для представления времени. Предусмотрте возможности установки времени и
@@ -33,6 +35,52 @@ public class Time {
 
     }
 
+    public int getHours() {
+        return hours;
+    }
+
+    public void setHours(int hours) {
+        this.hours = hours;
+    }
+
+    public int getMinutes() {
+        return minutes;
+    }
+
+    public void setMinutes(int minutes) {
+        this.minutes = minutes;
+    }
+
+    public int getSeconds() {
+        return seconds;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Time time = (Time) o;
+        return hours == time.hours && minutes == time.minutes && seconds == time.seconds;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(hours, minutes, seconds);
+    }
+
+    @Override
+    public String toString() {
+        return "Current time: "
+                + hours + ":" +
+                + minutes + ":" +
+                + seconds;
+    }
+
+    /*
     public void changeHours(int hours) {
         if (hours >= 0 && hours < 23) {
             this.hours = hours;
@@ -118,16 +166,8 @@ public class Time {
 
 
     }
+    */
 
-    @Override
-    public String toString() {
-        return "Current time: "
-                + hours + ":" +
-                +minutes + ":" +
-                +seconds;
-    }
 
-    public void print() {
-        System.out.println(this.toString());
-    }
+
 }
