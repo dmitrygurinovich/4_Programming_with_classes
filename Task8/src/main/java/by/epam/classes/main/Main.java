@@ -1,4 +1,8 @@
-package by.epam.classes.task8;
+package by.epam.classes.main;
+
+import by.epam.classes.entity.CustomerBase;
+import by.epam.classes.logic.CustomerBaseLogic;
+import by.epam.classes.entity.Customer;
 
 import java.math.BigInteger;
 
@@ -22,11 +26,20 @@ public class Main {
         base.addCustomer("Palvovski", "Alexandr", "Alexandrovich", "Malinovka", (new BigInteger("1123586735460990")), 114567);
         base.addCustomer("Romanchik", "Roman", "Vladimirovich", "Vezhi", (new BigInteger("3658872456379746")), 243576);
 
-        base.print();
-        base.sort();
-        base.print();
+        CustomerBaseLogic logic = new CustomerBaseLogic();
 
-        base.searchCustomersByCreditCard(new BigInteger("2187456376546354"), new BigInteger("3765645636456535"));
+        for(Customer customer : base.getBase()) {
+            System.out.println(customer);
+        }
 
+        logic.sort(base);
+
+        for(Customer customer : base.getBase()) {
+            System.out.println(customer);
+        }
+
+        for (Customer customer : logic.searchCustomersByCreditCard(base, new BigInteger("2187456376546354"), new BigInteger("3765645636456535"))) {
+            System.out.println(customer);
+        }
     }
 }

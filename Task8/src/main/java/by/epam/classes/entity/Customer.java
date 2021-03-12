@@ -1,4 +1,4 @@
-package by.epam.classes.task8;
+package by.epam.classes.entity;
 
 import java.math.BigInteger;
 import java.util.Objects;
