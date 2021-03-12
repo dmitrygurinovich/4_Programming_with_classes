@@ -1,4 +1,6 @@
-package by.epam.classes.task10;
+package by.epam.classes.entity;
+
+import by.epam.classes.entity.Airline;
 
 import java.util.ArrayList;
 
@@ -7,10 +9,6 @@ public class Airport {
 
     public Airport() {
 
-    }
-
-    public void addAirline(String destinationName, int flightNumber, String plainType, String departureTime, String[] days) {
-        base.add(new Airline(destinationName, flightNumber, plainType, departureTime, days));
     }
 
     public ArrayList<Airline> getBase() {

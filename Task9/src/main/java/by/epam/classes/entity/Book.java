@@ -1,4 +1,6 @@
-package by.epam.classes.task9;
+package by.epam.classes.entity;
+
+import java.util.Objects;
 
 /*
  9. Создать класс Book, спецификация которого приведена ниже. Определить конструкторы, set- и get- методы и
@@ -30,6 +32,10 @@ public class Book {
         this.pagesCount = pagesCount;
         this.price = price;
         this.cover = cover;
+    }
+
+    public Book() {
+
     }
 
     public String getName() {
@@ -86,6 +92,26 @@ public class Book {
 
     public void setCover(String cover) {
         this.cover = cover;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return id == book.id &&
+                year == book.year &&
+                pagesCount == book.pagesCount &&
+                Double.compare(book.price, price) == 0 &&
+                Objects.equals(name, book.name) &&
+                Objects.equals(author, book.author) &&
+                Objects.equals(publishingHouse, book.publishingHouse) &&
+                Objects.equals(cover, book.cover);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, author, publishingHouse, year, pagesCount, price, cover);
     }
 
     @Override

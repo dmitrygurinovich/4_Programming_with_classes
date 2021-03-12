@@ -9,7 +9,7 @@ public class Train {
     private String destinationName;
     private int trainNumber;
     private Date departureTime;
-    private static SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+    private static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
     public Train() {
     }
@@ -44,12 +44,12 @@ public class Train {
         this.departureTime = departureTime;
     }
 
-    public static SimpleDateFormat getFormat() {
-        return format;
+    public static SimpleDateFormat getTimeFormat() {
+        return timeFormat;
     }
 
-    public static void setFormat(SimpleDateFormat format) {
-        Train.format = format;
+    public static void setTimeFormat(SimpleDateFormat timeFormat) {
+        Train.timeFormat = timeFormat;
     }
 
     @Override
@@ -57,7 +57,8 @@ public class Train {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Train train = (Train) o;
-        return trainNumber == train.trainNumber && destinationName.equals(train.destinationName) &&
+        return trainNumber == train.trainNumber &&
+                destinationName.equals(train.destinationName) &&
                 departureTime.equals(train.departureTime);
     }
 
@@ -70,6 +71,6 @@ public class Train {
     public String toString() {
         return "Train's number: " + trainNumber + "\n" +
                 "Destination name: " + destinationName + "\n" +
-                "Departure time: " + format.format(departureTime);
+                "Departure time: " + timeFormat.format(departureTime);
     }
 }

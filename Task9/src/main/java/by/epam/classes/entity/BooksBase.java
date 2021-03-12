@@ -1,4 +1,4 @@
-package by.epam.classes.task9;
+package by.epam.classes.entity;
 
 /*
  9. Создать класс Book, спецификация которого приведена ниже. Определить конструкторы, set- и get- методы и
@@ -10,10 +10,16 @@ package by.epam.classes.task9;
  b) список книг, выпущенных заданным издательством;
  c) список книг, выпущенных после заданного года.
  */
+
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class BooksBase {
     private ArrayList<Book> base = new ArrayList<>();
+
+    public BooksBase() {
+
+    }
 
     public ArrayList<Book> getBase() {
         return base;
@@ -23,38 +29,16 @@ public class BooksBase {
         this.base = base;
     }
 
-    void searchBookByPublishingHouse(String publishingHouse) {
-        System.out.println("По запросу \"" + publishingHouse +"\" найдено:\n");
-        for(Book book : base) {
-            if(book.getPublishingHouse() == publishingHouse) {
-                System.out.println(book.toString());
-            }
-        }
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BooksBase base1 = (BooksBase) o;
+        return Objects.equals(base, base1.base);
     }
 
-    void searchBookByYear(int year) {
-        System.out.println("Книги, выпущенные после " + year +"-го года:\n");
-        for (Book book : base) {
-            if (book.getYear() > year) {
-                System.out.println(book.toString());
-            }
-        }
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(base);
     }
-
-    void searchBookByAuthor(String author) {
-        System.out.println("По запросу \"" + author +"\" найдено:\n");
-        for(Book book : base) {
-            if(book.getAuthor() == author) {
-                System.out.println(book.toString());
-            }
-        }
-
-    }
-
-    void addBook(String name, String author, String publishingHouse, int year, int pagesCount, double price, String cover) {
-        base.add(new Book(name, author, publishingHouse, year, pagesCount, price, cover));
-    }
-
 }

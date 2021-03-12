@@ -1,6 +1,9 @@
-package by.epam.classes.task10;
+package by.epam.classes.entity;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
+import java.util.Objects;
 
 /*
 10. Создать класс Airline, спецификация которого приведена ниже. Определить конструкторы, set- и get- методы
@@ -16,24 +19,16 @@ public class Airline {
     private String destinationName;
     private int flightNumber;
     private String plainType;
-    private String departureTime;
+    private Date departureTime;
     private String[] days;
+    private static final SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
 
-    public Airline(String destinationName, int flightNumber, String plainType, String departureTime, String[] days) {
+    public Airline(String destinationName, int flightNumber, String plainType, Date departureTime, String[] days) {
         this.destinationName = destinationName;
         this.flightNumber = flightNumber;
         this.plainType = plainType;
         this.departureTime = departureTime;
         this.days = days;
-    }
-
-    @Override
-    public String toString() {
-        return  "Destination name: " + destinationName +
-                "\nFlight number: " + flightNumber +
-                "\nPlain type: " + plainType +
-                "\nDeparture time: " + departureTime +
-                "\nDays: " + Arrays.toString(days) + "\n";
     }
 
     public String getDestinationName() {
@@ -60,12 +55,16 @@ public class Airline {
         this.plainType = plainType;
     }
 
-    public String getDepartureTime() {
+    public Date getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(String departureTime) {
+    public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
+    }
+
+    public static SimpleDateFormat getTimeFormat() {
+        return timeFormat;
     }
 
     public String[] getDays() {
@@ -74,5 +73,33 @@ public class Airline {
 
     public void setDays(String[] days) {
         this.days = days;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Airline airline = (Airline) o;
+        return flightNumber == airline.flightNumber &&
+                Objects.equals(destinationName, airline.destinationName) &&
+                Objects.equals(plainType, airline.plainType) &&
+                Objects.equals(departureTime, airline.departureTime) &&
+                Arrays.equals(days, airline.days);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(destinationName, flightNumber, plainType, departureTime);
+        result = 31 * result + Arrays.hashCode(days);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return  "Destination name: " + destinationName +
+                "\nFlight number: " + flightNumber +
+                "\nPlain type: " + plainType +
+                "\nDeparture time: " + departureTime +
+                "\nDays: " + Arrays.toString(days) + "\n";
     }
 }

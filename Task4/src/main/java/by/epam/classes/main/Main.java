@@ -16,11 +16,11 @@ import java.text.ParseException;
 public class Main {
     public static void main(String[] args) throws ParseException {
         Train[] trains = {
-                new Train("Grodno", 171, Train.getFormat().parse("9:20")),
-                new Train("Slutsk", 142, Train.getFormat().parse("14:25")),
-                new Train("Minsk", 81, Train.getFormat().parse("17:10")),
-                new Train("Slutsk", 209, Train.getFormat().parse("02:45")),
-                new Train("Grodno", 112, Train.getFormat().parse("12:25"))
+                new Train("Grodno", 171, Train.getTimeFormat().parse("9:20")),
+                new Train("Slutsk", 142, Train.getTimeFormat().parse("14:25")),
+                new Train("Minsk", 81, Train.getTimeFormat().parse("17:10")),
+                new Train("Slutsk", 209, Train.getTimeFormat().parse("02:45")),
+                new Train("Grodno", 112, Train.getTimeFormat().parse("12:25"))
         };
 
         Station station = new Station(trains);
