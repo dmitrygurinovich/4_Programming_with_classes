@@ -10,6 +10,7 @@
         <module name="Task1" />
         <module name="Task4" />
         <module name="Task3" />
+        <module name="Task11" />
         <module name="Task10" />
         <module name="Task9" />
         <module name="Task6" />
@@ -21,6 +22,7 @@
     <bytecodeTargetLevel>
       <module name="Task1" target="1.7" />
       <module name="Task10" target="1.7" />
+      <module name="Task11" target="1.7" />
       <module name="Task2" target="1.7" />
       <module name="Task3" target="1.7" />
       <module name="Task4" target="1.7" />
