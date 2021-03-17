@@ -7,17 +7,22 @@ public class Sentence {
 
     public Sentence(Word[] words, char sign) {
         StringBuilder sentence;
+        StringBuilder tempSentence;
 
         sentence = new StringBuilder("");
+        tempSentence = new StringBuilder("");
 
         for (int i = 0; i < words.length; i++) {
-            sentence.append(words[i].getWord()).append(" ");
+            tempSentence.append(words[i].getWord()).append(" ");
         }
-        sentence.deleteCharAt(sentence.length() - 1);
-        sentence.append(sign);
+        tempSentence.deleteCharAt(tempSentence.length() - 1);
+        tempSentence.append(sign);
+
+        sentence.append(Character.toUpperCase(tempSentence.charAt(0)));
+        tempSentence.deleteCharAt(0);
+        sentence.append(tempSentence);
 
 
-        Character.toUpperCase(sentence.charAt(0));
         this.sentence = sentence.toString();
     }
 

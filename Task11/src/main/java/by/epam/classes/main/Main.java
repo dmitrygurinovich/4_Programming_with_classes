@@ -40,7 +40,8 @@ public class Main {
                 new Sentence(thirdWordsArray, '!')
         };
 
-        System.out.println(sentences[1]);
-        // FIXME не делает первую букву предложения большой!
+        Text text = new Text(sentences);
+        System.out.println(text);
+
     }
 }
