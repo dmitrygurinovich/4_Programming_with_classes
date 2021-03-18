@@ -11,7 +11,7 @@ import by.epam.classes.logic.CarLogic;
  */
 public class Main {
 	public static void main(String[] args) {
-		Car car = new Car("Mazda", "323F BA", 55, 220, new Engine(5, 1.8, 125, "petrol", 7.0),
+		Car car = new Car("Mazda", "323F BA", 55, 230, new Engine(5, 1.8, 125, "petrol", 7.0),
 				new Wheel(16, 195, 65));
 		
 		CarLogic logic = new CarLogic();
