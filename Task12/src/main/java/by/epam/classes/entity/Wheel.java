@@ -4,8 +4,6 @@ public class Wheel {
 	private int diameter;
 	private int width;
 	private int proportionality;
-	
-	
 
 	public Wheel(int diameter, int width, int proportionality) {
 		this.diameter = diameter;
@@ -73,6 +71,4 @@ public class Wheel {
 	public String toString() {
 		return "Diameter: " + diameter + "\"" + "\nWidth: " + width+ " mm" + "\nProportionality: " + proportionality + " %";
 	}
-	
-	
 }
