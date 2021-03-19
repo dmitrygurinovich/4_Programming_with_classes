@@ -1,6 +1,7 @@
 package by.epam.classes.entity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Region {
@@ -9,13 +10,8 @@ public class Region {
 
     public Region(City name, District... districts) {
         this.name = name;
-
         ArrayList<District> tempDistricts;
-        tempDistricts = new ArrayList<>();
-
-        for (District district : districts) {
-            tempDistricts.add(district);
-        }
+        tempDistricts = new ArrayList<>(Arrays.asList(districts));
         this.districts = tempDistricts;
     }
 
