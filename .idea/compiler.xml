@@ -14,6 +14,8 @@
         <module name="Task12" />
         <module name="Task11" />
         <module name="Task10" />
+        <module name="Task15" />
+        <module name="Task14" />
         <module name="Task9" />
         <module name="Task6" />
         <module name="Task5" />
@@ -27,6 +29,8 @@
       <module name="Task11" target="1.7" />
       <module name="Task12" target="1.7" />
       <module name="Task13" target="1.7" />
+      <module name="Task14" target="1.7" />
+      <module name="Task15" target="1.7" />
       <module name="Task2" target="1.7" />
       <module name="Task3" target="1.7" />
       <module name="Task4" target="1.7" />
