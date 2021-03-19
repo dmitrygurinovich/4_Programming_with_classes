@@ -2,21 +2,21 @@ package by.epam.classes.entity;
 
 import java.util.Objects;
 
-public class City {
-    private String name;
+public class District {
+    private City name;
 
-    public City(String name) {
+    public District(City name) {
         this.name = name;
     }
 
-    public City() {
+    public District() {
     }
 
-    public String getName() {
+    public City getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(City name) {
         this.name = name;
     }
 
@@ -24,8 +24,8 @@ public class City {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        City city = (City) o;
-        return name.equals(city.name);
+        District district = (District) o;
+        return name.equals(district.name);
     }
 
     @Override
@@ -35,6 +35,6 @@ public class City {
 
     @Override
     public String toString() {
-        return name;
+        return name + " district";
     }
 }
