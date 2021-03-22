@@ -4,6 +4,9 @@ import by.epam.classes.entity.Account;
 import by.epam.classes.entity.Bank;
 import by.epam.classes.entity.BankAccount;
 
+import java.util.Collections;
+import java.util.Comparator;
+
 public class BankLogic {
 
     public BankLogic() {
@@ -40,8 +43,17 @@ public class BankLogic {
         return null;
     }
 
-    public void sortAccounts() {
+    public void sortAccountsByNumber(Bank bank) {
+        for (BankAccount bankAccount : bank.getBankAccounts()) {
 
+            Collections.sort(bankAccount.getAccounts(), new Comparator<Account>() {
+                @Override
+                public int compare(Account o1, Account o2) {
+                    return o1.getNumber(); // FIXME: не вызывается compareTo().
+                }
+            });
+
+        }
     }
 
     public int getSumOfAllAccounts(Bank bank) {

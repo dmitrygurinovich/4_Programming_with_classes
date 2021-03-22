@@ -8,6 +8,12 @@ public class Account {
     private boolean status;
     private int balance;
 
+    public Account(int balance, int number) {
+        this.number = number;
+        this.status = true;
+        this.balance = balance;
+    }
+
     public Account(int balance) {
         this.number = startNumber++;
         this.status = true;
