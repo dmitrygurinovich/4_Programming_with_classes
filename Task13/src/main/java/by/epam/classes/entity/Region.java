@@ -10,9 +10,7 @@ public class Region {
 
     public Region(City name, District... districts) {
         this.name = name;
-        ArrayList<District> tempDistricts;
-        tempDistricts = new ArrayList<>(Arrays.asList(districts));
-        this.districts = tempDistricts;
+        this.districts = new ArrayList<>(Arrays.asList(districts));
     }
 
     public Region() {
