@@ -49,10 +49,9 @@ public class BankLogic {
             Collections.sort(bankAccount.getAccounts(), new Comparator<Account>() {
                 @Override
                 public int compare(Account o1, Account o2) {
-                    return o1.getNumber(); // FIXME: не вызывается compareTo().
+                    return o1.getNumber() - o2.getNumber();
                 }
             });
-
         }
     }
 

@@ -13,20 +13,24 @@ import by.epam.classes.logic.BankLogic;
  */
 public class Main {
     public static void main(String[] args) {
-        BankAccount[] bankAccounts = new BankAccount[] {
-                new BankAccount(new Client("Dmitry", "Gurinovich"), new Account(1200), new Account(320)),
-                new BankAccount(new Client("Alexandr", "Bezmen"), new Account(800), new Account(-200), new Account(130)),
-                new BankAccount(new Client("Julia", "Pentyak"), new Account(1080), new Account(27), new Account(-800))
+        BankAccount[] bankAccounts = new BankAccount[]{
+                new BankAccount(new Client("Dmitry", "Gurinovich"), new Account(1200, 354), new Account(320, 187)),
+                new BankAccount(new Client("Alexandr", "Bezmen"), new Account(800, 987), new Account(-200, 113), new Account(130, 825)),
+                new BankAccount(new Client("Julia", "Pentyak"), new Account(1080, 97), new Account(27, 665), new Account(-800, 12))
         };
 
         Bank bank = new Bank(bankAccounts);
         BankLogic logic = new BankLogic();
 
-        logic.blockAccount(bank, 10001);
-        System.out.println(logic.searchAccount(bank, 10001));
+        System.out.println(bank);
+        logic.sortAccountsByNumber(bank);
+        System.out.println(bank);
 
-        logic.unblockAccount(bank, 10001);
-        System.out.println(logic.searchAccount(bank, 10001));
+        logic.blockAccount(bank, 354);
+        System.out.println(logic.searchAccount(bank, 354));
+
+        logic.unblockAccount(bank, 354);
+        System.out.println(logic.searchAccount(bank, 354));
 
         System.out.println(logic.getSumOfAllAccounts(bank));
         System.out.println(logic.getSumNegativeAccountBalances(bank));
