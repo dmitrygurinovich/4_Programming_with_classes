@@ -1,16 +1,24 @@
 package by.epam.classes.entity;
 
-import java.util.Locale;
-
 public enum Meal {
-    BREAKFAST,
-    LUNCH,
-    DINNER,
-    SUPPER;
+    BREAKFAST(100),
+    LUNCH(200),
+    DINNER(300),
+    SUPPER(400);
+
+    final private int price;
+
+    Meal (int price) {
+        this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 
     @Override
     public String toString() {
-        return super.toString().substring(0,1).toUpperCase(Locale.ROOT) +
-                super.toString().substring(1).toLowerCase(Locale.ROOT);
+        return super.toString().substring(0,1).toUpperCase() +
+                super.toString().substring(1).toLowerCase() + ": price - " + price + "$";
     }
 }
