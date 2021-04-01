@@ -1,10 +1,10 @@
 package by.epam.classes.entity;
 
 public enum Meal {
-    BREAKFAST(100),
-    LUNCH(200),
-    DINNER(300),
-    SUPPER(400);
+    BREAKFAST(10),
+    LUNCH(15),
+    DINNER(10),
+    SUPPER(7);
 
     final private int price;
 

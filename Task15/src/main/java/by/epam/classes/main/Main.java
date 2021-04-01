@@ -1,6 +1,9 @@
 package by.epam.classes.main;
 
-import by.epam.classes.entity.*;
+import by.epam.classes.entity.Hotel;
+import by.epam.classes.entity.Meal;
+import by.epam.classes.entity.Tour;
+import by.epam.classes.entity.TourType;
 
 /*
  5. Туристические путевки. Сформировать набор предложений клиенту по выбору туристической путевки
@@ -9,12 +12,8 @@ import by.epam.classes.entity.*;
  */
 public class Main {
     public static void main(String[] args) {
-        Permit permit = new Permit(
-                Transport.PLANE,
-                Hotel.ONE_STARS,
-                new Meal[]{Meal.DINNER, Meal.LUNCH, Meal.BREAKFAST},
-                new Healing[]{Healing.MASSAGE, Healing.SAUNA, Healing.POOL}
-        );
-        System.out.println(permit);
+        System.out.println(new Tour(TourType.EXCURSION, "Minsk", 2));
+        System.out.println(new Tour(TourType.CRUISE, new Meal[]{Meal.BREAKFAST, Meal.LUNCH, Meal.DINNER}, 7));
+        System.out.println(new Tour(TourType.SHOPPING, "Madrid", Hotel.FOUR_STARS, new Meal[]{Meal.BREAKFAST, Meal.DINNER, Meal.SUPPER}, 1));
     }
 }

@@ -1,6 +1,6 @@
 package by.epam.classes.entity;
 
-public enum Healing {
+public enum Treatment {
     MASSAGE(60),
     POOL(40),
     SAUNA(50),
@@ -9,7 +9,7 @@ public enum Healing {
 
     final private int price;
 
-    Healing(int price) {
+    Treatment(int price) {
         this.price = price;
     }
 

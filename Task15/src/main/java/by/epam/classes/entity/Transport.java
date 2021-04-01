@@ -2,8 +2,9 @@ package by.epam.classes.entity;
 
 public enum Transport {
     BUS(70),
-    TRAIN(90),
-    PLANE(120);
+    TRAIN(50),
+    PLANE(120),
+    SHIP(80);
 
     final private int price;
 
