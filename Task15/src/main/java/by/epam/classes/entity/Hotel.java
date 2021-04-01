@@ -1,11 +1,11 @@
 package by.epam.classes.entity;
 
 public enum Hotel {
-    ONE_STARS(100),
-    TWO_STARS(200),
-    THREE_STARS(300),
-    FOUR_STARS(400),
-    FIVE_STARS(500);
+    ONE_STARS(15),
+    TWO_STARS(20),
+    THREE_STARS(22),
+    FOUR_STARS(27),
+    FIVE_STARS(30);
 
     final private int price;
 
