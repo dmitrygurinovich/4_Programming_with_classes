@@ -213,7 +213,7 @@ public class Tour {
         if (treatments != null) {
             result.append("\nTreatment: ").append(Arrays.toString(treatments));
         }
-        result.append("\nTotal price: ").append(price).append("$");
+        result.append("\nTotal price: ").append(price).append("$\n");
 
         return  result.toString();
     }
