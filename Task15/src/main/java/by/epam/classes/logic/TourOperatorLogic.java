@@ -25,8 +25,7 @@ public class TourOperatorLogic {
     }
 
     public void sortToursByPrice(TourOperator operator) {
-        Collections.sort(operator.getTourList(),
-                new Comparator<Tour>() {
+        Collections.sort(operator.getTourList(), new Comparator<Tour>() {
                     @Override
                     public int compare(Tour o1, Tour o2) {
                         return o1.getPrice() - o2.getPrice();
@@ -34,11 +33,11 @@ public class TourOperatorLogic {
                 });
     }
 
-    public void sortToursByHotel(TourOperator operator) {
+    public void sortToursByTypePrice(TourOperator operator) {
         Collections.sort(operator.getTourList(), new Comparator<Tour>() {
             @Override
             public int compare(Tour o1, Tour o2) {
-                return o1.getHotel().getPrice() - o2.getHotel().getPrice();
+                return o1.getType().getPrice() - o2.getType().getPrice();
             }
         });
     }

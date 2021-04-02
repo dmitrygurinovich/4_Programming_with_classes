@@ -28,11 +28,13 @@ public class Main {
 
         TourOperatorLogic logic = new TourOperatorLogic();
 
-        // logic.sortToursByPrice(firefly); //ok
-        logic.sortToursByHotel(firefly);
+        logic.sortToursByPrice(firefly);
 
+        logic.sortToursByTypePrice(firefly);
 
+        System.out.println(firefly);
 
+        System.out.println("Search result:\n" + logic.searchTourByType(firefly, TourType.TREATMENT));
 
 
     }
