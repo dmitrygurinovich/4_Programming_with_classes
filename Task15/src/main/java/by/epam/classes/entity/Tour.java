@@ -188,33 +188,15 @@ public class Tour {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder();
-        if (type != null) {
-            result.append("\nTour type: ").append(type);
-        }
-        if (shopping != null) {
-            result.append("\nDo shopping in: ").append(Arrays.toString(shopping));
-        }
-        if (days != 0) {
-            result.append("\nDays: [").append(days).append("]");
-        }
-        if (city != null) {
-            result.append("\nCity: [").append(city).append("]");
-        }
-        if (transport != null) {
-            result.append("\nTransport: ").append(transport);
-        }
-        if (hotel != null) {
-            result.append("\nHotel: ").append(hotel);
-        }
-        if (meals != null) {
-            result.append("\nMeal: ").append(Arrays.toString(meals));
-        }
-        if (treatments != null) {
-            result.append("\nTreatment: ").append(Arrays.toString(treatments));
-        }
-        result.append("\nTotal price: ").append(price).append("$\n");
-
-        return  result.toString();
+        return  (type !=null ? "\nTour type: " + type : "") +
+                (shopping !=null ? "\nDo shopping in: " + Arrays.toString(shopping) : "") +
+                (days != 0 ? "\nDays: [" + days + "]" : "") +
+                (city != null ? "\nCity: [" + city + "]" : "") +
+                (transport != null ? "\nTransport: " + transport : "") +
+                (hotel != null ? "\nHotel: " + hotel : "") +
+                (meals != null ? "\nMeals: " + Arrays.toString(meals) : "") +
+                (treatments != null ? "\nTreatment: " + Arrays.toString(treatments) : "") +
+                (price != 0 ? "\nTotal price: " + price + "$\n" : "");
     }
+
 }
